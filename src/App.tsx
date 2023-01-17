@@ -4,6 +4,7 @@ import Landing from './pages/Landing'
 import MultipleQuestion from './pages/MultipleQuestion'
 import PersonalData from './pages/PersonalData'
 import SingleQuestion from './pages/SingleQuestion'
+import ThankYou from './pages/ThankYou'
 import { FormData } from './types'
 
 type Props = {}
@@ -36,7 +37,7 @@ class App extends Component<Props, State> {
 
   render() {
     return (
-      <DateQuestion nextPage={()=>3} title ="sad" updateAnswers={r=>r}/>
+      <ThankYou/>
     )
   }
 }
