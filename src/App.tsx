@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import DateQuestion from './pages/DateQuestion'
+import Landing from './pages/Landing'
+import MultipleQuestion from './pages/MultipleQuestion'
+import PersonalData from './pages/PersonalData'
+import SingleQuestion from './pages/SingleQuestion'
+import { FormData } from './types'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type Props = {}
+
+type State = {
+  currentPage: number,
+  answers: FormData[]
 }
 
-export default App;
+
+class App extends Component<Props, State> {
+  state = {
+    currentPage: 0,
+    answers: [],
+  }
+
+  
+  nextPage = () => {
+    this.setState({...this.state, currentPage: this.state.currentPage + 1})
+  }
+
+  updateAnswers = (data : FormData) =>{
+    const questionName = this.pages[this.state.currentPage].name
+    const dataWithPage = {...data, id: this.state.currentPage, page: questionName}
+    const answers = [...this.state.answers, {...dataWithPage}]
+    this.setState({...this.state ,currentPage: this.state.currentPage + 1, answers: answers})
+  }
+  
+  pages = [{component: Landing, props: {onNext: this.nextPage}, name : "Landing"}]
+
+  render() {
+    return (
+      <DateQuestion nextPage={()=>3} title ="sad" updateAnswers={r=>r}/>
+    )
+  }
+}
+
+export default App
