@@ -5,10 +5,11 @@ import QuestionTitle from "./QuestionTitle";
 
 type Props = {
   question?: string;
-  onSubmit?: (data: any) => void;
+  onSubmit?: (data?: any) => void;
   questionNumber?: number;
   options?: string[];
   flexibleOptions?: boolean;
+  optional?: boolean;
 };
 
 export default function MultipleQuestion({
@@ -17,6 +18,7 @@ export default function MultipleQuestion({
   questionNumber,
   options = [],
   flexibleOptions,
+  optional,
 }: Props) {
   const [otherOptionText, setOtherOptionText] = useState("");
   return (
@@ -63,6 +65,7 @@ export default function MultipleQuestion({
               Siguiente
             </Button>
           )}
+          {optional && <Button onClick={onSubmit}>Omitir</Button>}
         </form>
       </div>
   );

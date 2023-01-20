@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Logo from "../assest/logo.gif";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { Button } from "@material-tailwind/react";
+import {FcPrevious} from "react-icons/fc";
 
 type Props = {
   children: React.ReactNode;
+  prevPage?: () => void;
 };
 
 
@@ -22,6 +24,13 @@ class PageContainer extends Component<Props, State> {
         <main className="w-full flex-1 bg-white flex items-center justify-center content-center ">
           {this.props.children}
         </main>
+        <footer>
+          <div className="flex flex-col gap-5 w-fit justify-center items-center m-5">
+            <Button className="p-1" variant="outlined" onClick={this.props.prevPage}>
+              <FcPrevious className="text-4xl text-white"/>
+            </Button>
+          </div>
+        </footer>
       </div>
     );
   }

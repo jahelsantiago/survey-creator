@@ -8,18 +8,21 @@ type Pages = "landing" | "question" | "thanks"
 
 export type PageProviderProps = {
     page: Pages;
+    nextPage?: () => void;
+    prevPage?: () => void;
+    currPage?: number;
     questionProps?: QuestionProps;
     onSubmit?: (data: any) => void;
 }
 
-export default function PageProvider({page, questionProps, onSubmit = ()=>{}}: PageProviderProps) {
+export default function PageProvider({page, questionProps, onSubmit = ()=>{}, prevPage}: PageProviderProps) {
   if (page === "landing"){
     return <Landing onSubmit = {onSubmit}/>
   }
 
   if (page === "question"){
     return (
-        <PageContainer>
+        <PageContainer prevPage={prevPage}>
             <Question {...questionProps} onSubmit = {onSubmit}/>
         </PageContainer>
     )

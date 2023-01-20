@@ -6,14 +6,16 @@ import { SingleQuestionType } from "../../types";
 
 type Props = {
   question?: string;
-  onSubmit?: (data: any) => void;
+  onSubmit?: (data?: any) => void;
   questionNumber?: number;
+  optional?: boolean;
 };
 
 export default function SingleQuestion({
   question,
   onSubmit = () => {},
-  questionNumber
+  questionNumber,
+  optional,
 }: Props) {
   
   const {
@@ -47,6 +49,7 @@ export default function SingleQuestion({
           </p>
         )}
         <Button onClick={submit}>Siguiente</Button>
+        {optional && <Button onClick={()=>onSubmit()}>Omitir</Button>}
       </div>
   );
 }
