@@ -12,7 +12,7 @@ export default class Landing extends Component<props, state> {
     return (
       <main className='w-screen h-screen bg-white flex justify-center content-center flex-col'>
         <div className='flex flex-col items-center justify-between  gap-10'>
-          <h1 className='text-3xl md:text-5xl font-bold text-gray-800 uppercase text-center'>Campaña de escacez de anticonceptivos</h1>
+          <h1 className='text-3xl md:text-5xl font-bold text-gray-800 uppercase text-center'>Campaña de escasez de anticonceptivos</h1>
           <img src={anticonveptivo} alt="anticonceptivo" className="w-80 h-80" />
           <Button onClick={()=>this.props.onSubmit()}>Responder</Button>
         </div>
