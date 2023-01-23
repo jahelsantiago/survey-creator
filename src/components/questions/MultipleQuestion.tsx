@@ -30,7 +30,7 @@ export default function MultipleQuestion({
           {options.map((option, index) => (
             <Radio
               id={option}
-              key={option}
+              key={option + questionNumber}
               onChange={() => onSubmit({ answer: option, question })}
               name={question}
               label={option}
@@ -51,6 +51,7 @@ export default function MultipleQuestion({
               placeholder="Otro, ¿Cual?"
               value={otherOptionText}
               onChange={(e) => setOtherOptionText(e.target.value)}
+              autoFocus 
             />
           </div>}
           {flexibleOptions && (
@@ -65,7 +66,7 @@ export default function MultipleQuestion({
               Siguiente
             </Button>
           )}
-          {optional && <Button onClick={onSubmit}>Omitir</Button>}
+          {optional && <Button onClick={onSubmit} className = "bg-gray-600">Omitir</Button>}
         </form>
       </div>
   );

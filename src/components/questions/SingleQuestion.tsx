@@ -48,8 +48,10 @@ export default function SingleQuestion({
             Por favor, responder la pregunta
           </p>
         )}
-        <Button onClick={submit}>Siguiente</Button>
-        {optional && <Button onClick={()=>onSubmit()}>Omitir</Button>}
+        <div className="flex gap-2">
+          <Button onClick={submit}>Siguiente</Button>
+          {optional && <Button onClick={()=>onSubmit()} className = "bg-gray-600">Omitir</Button>}
+        </div>
       </div>
   );
 }

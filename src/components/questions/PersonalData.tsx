@@ -24,6 +24,12 @@ export default function PersonalData({ questionNumber, onSubmit = ()=>{}, questi
         ]);
         
     });
+    function handleKeyPress(event: React.KeyboardEvent<HTMLDivElement>) {
+      if (event.key === 'Enter') {
+        console.log("key pressed")
+        submit();
+      }
+    }
 
   return (
       <div className="flex flex-col gap-5">
@@ -31,9 +37,9 @@ export default function PersonalData({ questionNumber, onSubmit = ()=>{}, questi
              {question}
         </QuestionTitle>
         <form className="flex flex-col gap-4" onSubmit={submit}>
-            <Input variant="standard" label="Nombre*" {...register("name", {required: true, maxLength: 80})} />
-            <Input variant="standard" label="Correo electronico*" {...register("email", {required: true, pattern: /^\S+@\S+$/i})} />
-            <Input variant="standard" label="Numero de telefono*" {...register("phone", {required: true, minLength: 6, maxLength: 12})} />
+            <Input variant="standard" label="Nombre*" {...register("name", {required: true, maxLength: 80})} onKeyUp = {handleKeyPress}/>
+            <Input variant="standard" label="Correo electronico*" {...register("email", {required: true, pattern: /^\S+@\S+$/i}) } onKeyUp = {handleKeyPress}/>
+            <Input variant="standard" label="Numero de telefono*" {...register("phone", {required: true, minLength: 6, maxLength: 12})} onKeyUp = {handleKeyPress}/>
             {
                 hasErrors && <p className="text-red-500">Por favor, revisar los campos</p>    
             }

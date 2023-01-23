@@ -16,3 +16,8 @@ export type SingleQuestionProps = {
 }
 
 export type FormData = PersonalInfo | SingleQuestionType;
+
+export type answer = {
+    answer: string;
+    question: string;
+}

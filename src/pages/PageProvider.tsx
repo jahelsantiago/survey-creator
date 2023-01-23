@@ -13,23 +13,24 @@ export type PageProviderProps = {
     currPage?: number;
     questionProps?: QuestionProps;
     onSubmit?: (data: any) => void;
+    answers?: any[];
 }
 
-export default function PageProvider({page, questionProps, onSubmit = ()=>{}, prevPage}: PageProviderProps) {
+export default function PageProvider({page, questionProps, onSubmit = ()=>{}, prevPage, answers, currPage}: PageProviderProps) {
   if (page === "landing"){
     return <Landing onSubmit = {onSubmit}/>
   }
 
   if (page === "question"){
     return (
-        <PageContainer prevPage={prevPage}>
-            <Question {...questionProps} onSubmit = {onSubmit}/>
+        <PageContainer prevPage={prevPage} >
+            <Question {...questionProps} onSubmit = {onSubmit} questionNumber = {currPage}/>
         </PageContainer>
     )
   }
 
   if (page === "thanks"){
-    return <ThankYou/>
+    return <ThankYou answers={answers}/>
   }
 
   return <div>404</div>

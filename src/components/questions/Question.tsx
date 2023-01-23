@@ -13,28 +13,28 @@ export type QuestionProps = {
     personalData?: boolean;
     onSubmit?: (data: any) => void;
     optional?: boolean;
+    questionNumber?: number;
 }
 
-export default function Question({question, options, flexibleOptions, date, onSubmit= ()=>{}, personalData, optional}: QuestionProps) {
-    
-    let component = <SingleQuestion question={question} onSubmit={onSubmit} optional = {optional}/>
+export default function Question(props: QuestionProps) {
 
-    if(personalData){
-        component = <PersonalData question={question} onSubmit={onSubmit} />
+    let Component = <SingleQuestion {...props}/>
+
+    if(props.personalData){
+        Component = <PersonalData {...props} />
     }
 
-    if(date){
-        console.log("date", optional)
-        component = <DateQuestion question={question} onSubmit={onSubmit} optional = {optional}/>
+    if(props.date){
+        Component = <DateQuestion {...props}/>
     }
     
-    if(options){
-        component =  <MultipleQuestion question={question} options={options} onSubmit={onSubmit} flexibleOptions = {flexibleOptions} optional = {optional}/>
+    if(props.options){
+        Component =  <MultipleQuestion {...props}/>
     }
 
     return (
         <div className='w-[50rem] m-3'>
-            {component}
+            {Component}
         </div>
     )
 }
