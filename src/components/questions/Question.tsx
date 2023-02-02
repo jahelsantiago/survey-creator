@@ -33,7 +33,7 @@ export default function Question(props: QuestionProps) {
     }
 
     return (
-        <div className='w-[50rem] m-3'>
+        <div className='w-[40rem] m-3 z-30'>
             {Component}
         </div>
     )

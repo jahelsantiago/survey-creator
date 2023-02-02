@@ -1,5 +1,6 @@
 import {useEffect, useRef} from 'react'
 import logo from "../assest/logo.gif"
+import WallPaper from '../components/WallPaper'
 import { uploadAnswer } from '../firebase/services'
 
 type Props = {
@@ -17,10 +18,13 @@ export default function ThankYou({answers = []}: Props) {
   }, [])
   
   return (
-    <div className='w-screen h-screen flex flex-col justify-center items-center text-center'>
-        <img src = {logo} />
-        <h1 className='text-8xl mt-10 text-primary-3'>Muchas Gracias</h1>
-        <h2 className='text-4xl'>Por tu opinion</h2>
-    </div>
+    <WallPaper>
+      <div className='w-screen h-screen flex flex-col justify-center items-center text-center'>
+          <h1 className='text-6xl font-extrabold mt-10 text-primary-gray'>
+            Muchas gracias <br/>
+            por tu <span className='text-primary-blue'>opinion</span>
+          </h1>
+      </div>
+    </WallPaper>
   )
 }

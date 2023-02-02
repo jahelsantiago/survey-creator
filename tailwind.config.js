@@ -11,7 +11,12 @@ module.exports = withMT({
           1: "#6bc6e2",
           2: "#27acd4",
           3: "#195c79",
+          blue: "#0071bc",
+          gray: "#4d4d4d",
         },
+      },
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
       },
     },
   },
