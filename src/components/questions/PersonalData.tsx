@@ -26,7 +26,6 @@ export default function PersonalData({ questionNumber, onSubmit = ()=>{}, questi
     });
     function handleKeyPress(event: React.KeyboardEvent<HTMLDivElement>) {
       if (event.key === 'Enter') {
-        console.log("key pressed")
         submit();
       }
     }

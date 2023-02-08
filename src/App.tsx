@@ -11,7 +11,7 @@ type State = {
 
 class App extends Component<Props, State> {
   state = {
-    currentPage: 6,
+    currentPage: 0,
   }
 
   answers : answer[] = []
@@ -24,10 +24,6 @@ class App extends Component<Props, State> {
     this.setState({...this.state, currentPage: this.state.currentPage - 1})
   }
   
-  componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>, snapshot?: any): void {
-    console.log(this.state)
-    console.log(this.answers)
-  }
 
   onSubmit = (data: answer) => {
     this.answers[this.state.currentPage] = data

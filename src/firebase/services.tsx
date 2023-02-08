@@ -11,11 +11,24 @@ export async function uploadAnswer(answers: answer[]) {
 
 // iterate trought an array of answer types and return an object 
 function castAnswersArrayObj(answers: answer[]) {
-    let obj = new Map();
-    answers.forEach((answer) => {
-        if (answer){
-            obj.set(answer.question, answer.answer)
+    //delete undefined values
+    answers = answers.filter((answer) => answer !== undefined);
+    //if the value is an array, spread it
+    const new_ansers: answer[] = [];
+    answers.forEach((elem) => {
+        if (Array.isArray(elem)){
+            elem.forEach((ans : answer) => {
+                new_ansers.push({...ans})
+            })
+        } else {
+            new_ansers.push(elem)
         }
+    })
+    console.log(new_ansers);
+
+    let obj = new Map();
+    new_ansers.forEach((elem) => {
+        obj.set(elem.question, elem.answer)
     });
     return obj;
 }
