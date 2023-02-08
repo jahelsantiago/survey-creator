@@ -34,8 +34,9 @@ export default function DateQuestion({
         onChange={(date) => {
           selectedDate.current = date;
         }}
+        data-cy="date-selector"
       />
-      <div className="flex gap-2">
+      <div className="flex gap-2 z-30">
         <Button onClick={onClick}>Siguiente</Button>
         {optional && <Button onClick={() => onSubmit()} className = "bg-gray-600">Omitir</Button>}
       </div>

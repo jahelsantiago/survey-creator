@@ -19,6 +19,7 @@ export default class Button extends Component<Props, State> {
         onClick={this.props.onClick}
         type = "button"
         className={"font-extrabold z-30 bg-primary-2 hover:bg-primary-3 duration-300 transition-colors px-6 py-3 rounded-full max-w-fit" + " "+ this.props.className}
+        data-cy = {"btn-" + this.props.children?.toString().toLowerCase()}
       >
         <span className="text-white text-lg font-bold uppercase">
             {this.props.children}

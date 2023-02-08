@@ -10,9 +10,9 @@ function DateSelector({onChange}: props) {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
-    <div className="relative w-fit">
+    <div className="relative w-fit z-40">
       <DatePicker
-        className="bg-white rounded-md border border-gray-300 py-2 px-4"
+        className="bg-white rounded-md border border-gray-300 py-2 px-4 z-50"
         selected={startDate}
         onChange={(date:Date)=>{
           setStartDate(date);

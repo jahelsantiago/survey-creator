@@ -11,7 +11,7 @@ type State = {
 
 class App extends Component<Props, State> {
   state = {
-    currentPage: 0,
+    currentPage: 6,
   }
 
   answers : answer[] = []

@@ -37,12 +37,6 @@ export default function MultipleQuestion({
             />
           ))}
           {flexibleOptions && <div className="flex align-middle">
-            <Radio
-              name={question}
-              alt="Otro"
-              checked={otherOptionText !== ""}
-              readOnly
-            />
             <Input
               className="text-lg font-extralight"
               size="lg"
