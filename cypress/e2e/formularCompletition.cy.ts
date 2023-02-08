@@ -9,19 +9,21 @@ describe('template spec', () => {
     cy.contains("Campaña de escasez de").should('be.visible')
     cy.dataCy('btn-responder').click()
     //fill the formular with 
-    cy.get('input[name="name"]').type('test')
+    cy.get('input[name="name"]').type('Jahel Leon')
     cy.get('input[name="email"]').type('jleonro@unal.edu.co')
     cy.get('input[name="phone"]').type('1234567890')
     cy.dataCy('btn-siguiente').click()
-    //question 3
+    //question 2
     cy.contains('Implantes').click()
-    //question 4 should fail 
+    //question 3 should fail 
     cy.dataCy('btn-siguiente').click()
     cy.contains('Por favor, responder la pregunta').should('be.visible')
 
     cy.get("[placeholder ='Por favor ingrese su respuesta']").type("Ninguno")
     cy.dataCy('btn-siguiente').click()
-
+    //    question 4
+    cy.get("[placeholder ='Por favor ingrese su respuesta']").type("Ninguno")
+    cy.dataCy('btn-siguiente').click()
     //question 5 click en la opcion de ningiuno, deberia cambiar el checkbox a seleccionado y el texto estar active
     cy.get("input[placeholder ='Otro, ¿Cual?']").type("Ninguno")
     cy.dataCy('btn-siguiente').click()

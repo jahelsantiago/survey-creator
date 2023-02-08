@@ -36,6 +36,7 @@ class App extends Component<Props, State> {
     { page: "question", questionProps : {question:"¿Qué tipo de anticonceptivo tomas?", options: tiposDeAnticonceptivos}},
     { page: "question", questionProps : {question:"¿Qué marca de anticonceptivo utilizas?"}},
     { page: "question", questionProps : {question:"¿Cuál es el motivo por el que tomas anticonceptivos?", options: motivosTomaDeAnticonceptivos, flexibleOptions: true}},
+    { page: "question", questionProps : {question:"¿Has identificado alguna molestia o algún efecto adverso tras el uso del método anticonceptivo? Cuéntanos tu experiencia."}},
     { page: "question", questionProps : {question: "¿Has tenido problemas con el acceso al anticonceptivo?", options: ["Sí", "No"]}},
     { page: "question", questionProps : {question: "¿Hace cuánto tiempo tienes problemas con el acceso al anticonceptivo?", date: true, optional: true}},
     { page: "question", questionProps : {question: "¿De qué manera te afecta la escasez de estos anticonceptivos? Es decir, ¿qué consecuencias trae para tu vida y/o cuerpo la falta de ellos?", optional:true}},
