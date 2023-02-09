@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "../Button";
 import QuestionTitle from "./QuestionTitle";
 
-type Props = {
+export type Props = {
   question?: string;
   onSubmit?: (data?: any) => void;
   questionNumber?: number;
@@ -26,7 +26,7 @@ export default function MultipleQuestion({
         <QuestionTitle questionNumber={questionNumber}>
           {question}
         </QuestionTitle>
-        <form className="flex flex-col" onSubmit={() => {}}>
+        <form className="flex flex-col" onSubmit={(e) => {e.preventDefault()}}>
           {options.map((option, index) => (
             <Radio
               id={option}

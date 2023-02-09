@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+
 import cypress from "cypress";
 
 // ***********************************************
@@ -45,6 +46,9 @@ import cypress from "cypress";
  * @example cy.dataCy('greeting')
  */
 Cypress.Commands.add('dataCy', (value) => cy.get(`[data-cy=${value}]`))
+
+
+
 
 declare global {
     namespace Cypress {
