@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import { metdosAccesoAnticonceptivos, motivosTomaDeAnticonceptivos, tiposDeAnticonceptivos } from './assest/utils'
-import Question, { QuestionProps } from './components/questions/Question'
 import PageProvider, { PageProviderProps } from './pages/PageProvider'
 import { answer } from './types'
 type Props = {}

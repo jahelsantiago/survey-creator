@@ -21,12 +21,20 @@ export default function MultipleQuestion({
   optional,
 }: Props) {
   const [otherOptionText, setOtherOptionText] = useState("");
+
+  const submit = (event : React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (otherOptionText !== "") {
+      onSubmit({ answer: otherOptionText, question });
+    }
+  }
+
   return (
       <div className="flex flex-col gap-5 w-full">
         <QuestionTitle questionNumber={questionNumber}>
           {question}
         </QuestionTitle>
-        <form className="flex flex-col" onSubmit={(e) => {e.preventDefault()}}>
+        <form className="flex flex-col" onSubmit={submit}>
           {options.map((option, index) => (
             <Radio
               id={option}
@@ -45,7 +53,7 @@ export default function MultipleQuestion({
               placeholder="Otro, ¿Cual?"
               value={otherOptionText}
               onChange={(e) => setOtherOptionText(e.target.value)}
-              autoFocus 
+              autoFocus
             />
           </div>}
           {flexibleOptions && (

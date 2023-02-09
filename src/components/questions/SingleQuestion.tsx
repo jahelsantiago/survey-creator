@@ -24,8 +24,10 @@ export default function SingleQuestion({
     formState: { errors },
   } = useForm<SingleQuestionType>();
 
-  const submit = handleSubmit((data) => {
+  const submit = handleSubmit((data, event) => {
+    event?.preventDefault();
     onSubmit({...data, question});
+    return false;
   });
 
   const hasErrors = Object.keys(errors).length > 0;
@@ -33,7 +35,7 @@ export default function SingleQuestion({
   return (
       <div className="flex flex-col gap-5 w-full">
         <QuestionTitle questionNumber={questionNumber}>{question}</QuestionTitle>
-        <form onSubmit={submit}>
+        <form onSubmit={submit} >
           <Input
             className="text-2xl font-extralight"
             size="lg"
